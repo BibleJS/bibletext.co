@@ -7,10 +7,10 @@
         span.icon-bar
         span.icon-bar
       a.navbar-brand(href='/')
-        span.ion-cube
-        | Project name
+        //- span.ion-cube
+        | Bibleio
     .collapse.navbar-collapse
-      ul.nav.navbar-nav
+      //- ul.nav.navbar-nav
         li(class=title=='Home'?'active':undefined)
           a(href='/') Home
         li(class=title=='API Examples'?'active':undefined)
@@ -18,12 +18,7 @@
         li(class=title=='Contact'?'active':undefined)
           a(href='/contact') Contact
       ul.nav.navbar-nav.navbar-right
-        if !user
-          li(class=title=='Login'?'active':undefined)
-            a(href='/login') Login
-          li(class=title=='Create Account'?'active':undefined)
-            a(href='/signup') Create Account
-        else
+        if user
           li.dropdown(class=title=='Account Management'?'active':undefined)
             a.dropdown-toggle(href='#', data-toggle='dropdown')
               if user.profile.picture

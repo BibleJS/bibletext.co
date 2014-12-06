@@ -1,11 +1,19 @@
 extends ../layout
 
 block content
-  .page-header
-    h3 Profile Information
 
   form.form-horizontal(action='/account/profile', method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
+
+    h3 Your mobile
+
+    .form-group
+      label.col-sm-2.control-label(for='mobile') Mobile
+      .col-sm-4
+        input.form-control(type='tel', name='mobile', id='mobile', value='#{user.profile.mobile}')
+
+    h3 Profile Information
+
     .form-group
       label.col-sm-2.control-label(for='email') Email
       .col-sm-4
@@ -27,7 +35,7 @@ block content
       label.col-sm-2.control-label(for='location') Location
       .col-sm-4
         input.form-control(type='text', name='location', id='location', value='#{user.profile.location}')
-    .form-group
+    //- .form-group
       label.col-sm-2.control-label(for='website') Website
       .col-sm-4
         input.form-control(type='text', name='website', id='website', value='#{user.profile.website}')
@@ -41,10 +49,10 @@ block content
           span.ion-edit
           | Update Profile
 
-  .page-header
+  //- .page-header
     h3 Change Password
 
-  form.form-horizontal(action='/account/password', method='POST')
+  //- form.form-horizontal(action='/account/password', method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
     .form-group
       label.col-sm-3.control-label(for='password') New Password
