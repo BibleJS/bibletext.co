@@ -11,11 +11,11 @@ block content
         a.btn-lg.btn.btn-block.btn-google-plus.btn-social(href='/auth/google')
           i.fa.fa-google-plus
           | Sign in with Google
-      
-      if user.profile.mobile
-        p We'll send you a bible passage everyday to for free :)
       else
-        p Update your mobile start receiving mesages from us.
-        a.btn-lg.btn.btn-primary.btn-block(href='/account') Update preferences
+        if user.profile.mobile
+          p We'll send you a bible passage everyday for free :)
+        else
+          p Update your mobile to start receiving mesages from us.
+          a.btn-lg.btn.btn-primary.btn-block(href='/account') Update preferences
 
 

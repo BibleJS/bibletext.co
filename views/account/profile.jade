@@ -2,27 +2,23 @@ extends ../layout
 
 block content
 
+  .page-title: h3 Profile Information
+
   form.form-horizontal(action='/account/profile', method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
-
-    h3 Your mobile
-
-    .form-group
-      label.col-sm-2.control-label(for='mobile') Mobile
-      .col-sm-4
-        input.form-control(type='tel', name='mobile', id='mobile', value='#{user.profile.mobile}')
-
-    h3 Profile Information
-
-    .form-group
-      label.col-sm-2.control-label(for='email') Email
-      .col-sm-4
-        input.form-control(type='email', name='email', id='email', value='#{user.email}')
     .form-group
       label.col-sm-2.control-label(for='name') Name
       .col-sm-4
         input.form-control(type='text', name='name', id='name', value='#{user.profile.name}')
     .form-group
+      label.col-sm-2.control-label(for='mobile') Mobile
+      .col-sm-4
+        input.form-control(type='tel', name='mobile', id='mobile', value='#{user.profile.mobile}')
+    .form-group
+      label.col-sm-2.control-label(for='email') Email
+      .col-sm-4
+        input.form-control(type='email', name='email', id='email', value='#{user.email}')
+    //- .form-group
       label.col-sm-2.control-label(for='gender') Gender
       .col-sm-4
         label.radio
@@ -31,7 +27,7 @@ block content
         label.radio
           input(type='radio', checked=user.profile.gender=='female', name='gender', value='female', data-toggle='radio')
           span Female
-    .form-group
+    //- .form-group
       label.col-sm-2.control-label(for='location') Location
       .col-sm-4
         input.form-control(type='text', name='location', id='location', value='#{user.profile.location}')
