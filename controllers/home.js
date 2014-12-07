@@ -62,8 +62,7 @@ exports.index = function(req, res) {
 exports.stats = function(req, res) {
 
   User.find(function(err, users) {
-    // console.log(users);
-    // res.send(_(users).pluck('profile').pluck('mobile').compact().value());
+    res.json(_.pluck(users, 'email'));
   });
 
 };
