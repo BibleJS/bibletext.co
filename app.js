@@ -231,11 +231,8 @@ bible.getVerse('votd', function (err, data) {
 
 });
 
- var job = new CronJob('00 35 7 * * *', function() {
-   // Runs every weekday (Monday through Friday)
-   // at 11:30:00 AM. It does not run on Saturday
-   // or Sunday.
-   User.find(function(err, users) {
+var job = new CronJob('00 35 7 * * *', function() {
+  User.find(function(err, users) {
     var mobiles = _(users).pluck('profile').pluck('mobile').compact().value();
 
     _.each(mobiles, function(num) {
@@ -250,9 +247,9 @@ bible.getVerse('votd', function (err, data) {
       });
     });
 
-   });
- });
- job.start();
+  });
+});
 
+job.start();
 
 module.exports = app;
