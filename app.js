@@ -116,7 +116,6 @@ app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }))
 
 app.get('/', homeController.index);
 app.get('/votd', homeController.votd);
-app.get('/stats', homeController.stats);
 app.get('/send', homeController.votdMiddleware, homeController.send);
 
 
@@ -232,6 +231,9 @@ bible.getVerse('votd', function (err, data) {
 });
 
 var job = new CronJob('00 35 7 * * *', function() {
+
+  console.log(new Date(), 'cron job ran');
+
   User.find(function(err, users) {
     var mobiles = _(users).pluck('profile').pluck('mobile').compact().value();
 

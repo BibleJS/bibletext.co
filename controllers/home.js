@@ -59,14 +59,6 @@ exports.index = function(req, res) {
 
 };
 
-exports.stats = function(req, res) {
-
-  User.find(function(err, users) {
-    res.json(_.pluck(users, 'email'));
-  });
-
-};
-
 exports.send = function(req, res, next) {
 
   var message = {
