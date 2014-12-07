@@ -230,7 +230,7 @@ bible.getVerse('votd', function (err, data) {
 
 });
 
- var job = new CronJob('00 35 * * * *', function() {
+ var job = new CronJob('00 35 7 * * *', function() {
    // Runs every weekday (Monday through Friday)
    // at 11:30:00 AM. It does not run on Saturday
    // or Sunday.
