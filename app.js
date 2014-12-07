@@ -21,6 +21,10 @@ var passport = require('passport');
 var expressValidator = require('express-validator');
 var connectAssets = require('connect-assets');
 
+var User = require('./models/User');
+
+var CronJob = require('cron').CronJob;
+
 /**
  * Controllers (route handlers).
  */
@@ -199,5 +203,55 @@ app.use(errorHandler());
 app.listen(app.get('port'), function() {
   console.log('Express server listening on port %d in %s mode', app.get('port'), app.get('env'));
 });
+
+
+/**
+ * The cron job task for sending text messages
+ */
+
+var twilio = require('twilio')(secrets.twilio.sid, secrets.twilio.token);
+var bible = require('bible-english');
+var fm = require('util').format;
+
+var verse;
+
+bible.getVerse('votd', function (err, data) {
+  if(err) return console.log(err);
+
+  var votd = _.first(data);
+
+  // Builds a plain verse of the day, used for text messages
+  verse = fm("%s - %s %s:%s",
+     votd.text,
+     votd.bookname,
+     votd.chapter,
+     votd.verse
+   );
+
+});
+
+ var job = new CronJob('00 35 * * * *', function() {
+   // Runs every weekday (Monday through Friday)
+   // at 11:30:00 AM. It does not run on Saturday
+   // or Sunday.
+   User.find(function(err, users) {
+    var mobiles = _(users).pluck('profile').pluck('mobile').compact().value();
+
+    _.each(mobiles, function(num) {
+      var message = {
+        to: num,
+        from: '+12678002909',
+        body: verse
+      };
+
+      twilio.sendMessage(message, function(err, responseData) {
+        console.log(err || responseData.to);
+      });
+    });
+
+   });
+ });
+ job.start();
+
 
 module.exports = app;
