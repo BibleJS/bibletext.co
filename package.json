@@ -1,9 +1,9 @@
 {
-  "name": "hackathon-starter",
+  "name": "bibletext.co",
   "version": "2.3.3",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sahat/hackathon-starter.git"
+    "url": "https://github.com/BibleJS/bibletext.co.git"
   },
   "scripts": {
     "start": "node app.js",
