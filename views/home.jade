@@ -14,8 +14,14 @@ block content
       else
         if user.profile.mobile
           p We'll send you a bible passage everyday for free :)
+            | &nbsp;
+            i.fa.fa-check(style='color:limegreen')
         else
           p Update your mobile to start receiving mesages from us.
           a.btn-lg.btn.btn-primary.btn-block(href='/account') Update preferences
 
+    if votd
+      blockquote= votd.text
+        br
+        small #{votd.bookname} #{votd.chapter}:#{votd.verse}
 

@@ -55,7 +55,8 @@
     "twit": "^1.1.18",
     "uglify-js": "^2.4.15",
     "validator": "^3.22.1",
-    "yui": "^3.18.1"
+    "yui": "^3.18.1",
+    "bible-english": "~0.1.0"
   },
   "devDependencies": {
     "blessed": "^0.0.37",

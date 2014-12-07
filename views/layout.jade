@@ -8,7 +8,8 @@ html
     title #{title}
     != css('main')
   body
-    include partials/navbar
+    if user
+      include partials/navbar
 
     .container
       include partials/flash
