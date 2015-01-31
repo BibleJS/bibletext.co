@@ -1,6 +1,6 @@
 {
   "name": "bibletext.co",
-  "version": "2.3.3",
+  "version": "0.0.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/BibleJS/bibletext.co.git"
@@ -64,6 +64,9 @@
     "chai": "^1.10.0",
     "mocha": "^2.0.1",
     "multiline": "^1.0.1",
-    "supertest": "^0.15.0"
+    "supertest": "^0.15.0",
+    "grunt": "~0.4.5",
+    "grunt-semver": "~0.1.6",
+    "grunt-exec": "~0.4.6"
   }
 }
