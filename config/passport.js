@@ -1,6 +1,6 @@
 var _ = require('lodash');
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+// var LocalStrategy = require('passport-local').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var OAuthStrategy = require('passport-oauth').OAuthStrategy; // Tumblr
 var OAuth2Strategy = require('passport-oauth').OAuth2Strategy; // Venmo, Foursquare
@@ -19,6 +19,7 @@ passport.deserializeUser(function(id, done) {
 
 // Sign in using Email and Password.
 
+/*
 passport.use(new LocalStrategy({ usernameField: 'email' }, function(email, password, done) {
   User.findOne({ email: email }, function(err, user) {
     if (!user) return done(null, false, { message: 'Email ' + email + ' not found'});
@@ -31,6 +32,7 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, function(email, passw
     });
   });
 }));
+*/
 
 /**
  * OAuth Strategy Overview
@@ -95,7 +97,7 @@ passport.use(new GoogleStrategy(secrets.google, function(req, accessToken, refre
 
 
 // Tumblr API setup.
-
+/*
 passport.use('tumblr', new OAuthStrategy({
     requestTokenURL: 'http://www.tumblr.com/oauth/request_token',
     accessTokenURL: 'http://www.tumblr.com/oauth/access_token',
@@ -154,6 +156,7 @@ passport.use('venmo', new OAuth2Strategy({
     });
   }
 ));
+*/
 
 // Login Required middleware.
 

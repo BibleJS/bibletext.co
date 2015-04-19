@@ -31,7 +31,7 @@ var CronJob = require('cron').CronJob;
 
 var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
-var apiController = require('./controllers/api');
+// var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
 
 /**
