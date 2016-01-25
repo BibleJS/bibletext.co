@@ -193,8 +193,9 @@ app.get('/auth/venmo/callback', passport.authorize('venmo', { failureRedirect: '
 /**
  * 500 Error Handler.
  */
-
-app.use(errorHandler());
+if (process.env.NODE_ENV === 'development') {
+  app.use(errorHandler());
+}
 
 /**
  * Start Express server.
