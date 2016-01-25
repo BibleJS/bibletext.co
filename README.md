@@ -1,9 +1,7 @@
 Bibletext.co
 ============
 
-Demo: http://bibletext.co/
-
-The repository for bibletext.co
+Demo: httsp://bibletext-co.herokuapp.com/
 
 ## How to contribute
 Fork the project and send us a pull request :smile:
