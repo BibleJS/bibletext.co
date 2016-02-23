@@ -1,7 +1,7 @@
 Bibletext.co
 ============
 
-Demo: [https://bibletext-co.herokuapp.com/](https://bibletext-co.herokuapp.com/)
+Demo: [https://bibletext.herokuapp.com/](https://bibletext.herokuapp.com/)
 
 ## How to contribute
 Fork the project and send us a pull request :smile:
